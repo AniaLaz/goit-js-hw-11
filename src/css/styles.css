@@ -25,10 +25,35 @@ body {
   flex-wrap: wrap;
   gap: 15px;
 }
- .photo-card {
-  margin-top: 50px;
- }
+.div-input{
+display:flex;
+justify-content: center;
+background-color: rgba(223, 135, 135, 0.466);
+padding-top: 3px;
+padding-bottom: 3px;
+
+position: fixed;
+top: 0;
+width: 100%;
+
+}
+
+.input{
+  margin-right: 10px;
+}
 
 .load-more.is-hidden {
   display: none;
 }
+.info{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.info-item{
+  font-size: 10px;
+}
+

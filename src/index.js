@@ -44,7 +44,6 @@ function onPicture(e) {
         totalHits = data.totalHits;
         pageNow = totalHits/40;
         console.log("pageNow",pageNow);
-        Notify.info(`Hooray! We found ${totalHits} images.`);
         page = 1;
         
       
@@ -52,18 +51,22 @@ function onPicture(e) {
         Notify.failure('Sorry, there are no images matching your search query. Please try again.');
         return
     }
+    // else if (){}
 
+    else{
         const marcup = createMarkup(data)
+        Notify.info(`Hooray! We found ${totalHits} images.`);
         galleryEl.innerHTML = marcup;
         page +=1;
         btnLoadMoreEl.classList.remove("is-hidden")
         lightbox.refresh()
-        return})
+        return}})
     .catch(err => console.log(err))
 
 }
 
 function onLoadMore(el) {
+  btnLoadMoreEl.disabled = true;
     fetchCountries(name,page)
     .then(data => {
         const marcup = createMarkup(data)
@@ -75,6 +78,7 @@ function onLoadMore(el) {
     // refresh()
     console.log("page", page);
     console.log("pageNow", pageNow);
+    btnLoadMoreEl.disabled = false;
     if (page > pageNow){
         Notify.failure("We're sorry, but you've reached the end of search results.");
         btnLoadMoreEl.classList.add("is-hidden")
@@ -93,16 +97,16 @@ function  createMarkup(arr) {
     </a>
     <div class="info">
       <p class="info-item">
-        <b>Likes "${el.likes}"</b>
+        <b>Likes <br> ${el.likes}</b>
       </p>
       <p class="info-item">
-        <b>Views "${el.views}"</b>
+        <b>Views <br> ${el.views}</b>
       </p>
       <p class="info-item">
-        <b>Comments "${el.comments}"</b>
+        <b>Comments <br> ${el.comments}</b>
       </p>
       <p class="info-item">
-        <b>Downloads "${el.downloads}"</b>
+        <b>Downloads <br> ${el.downloads}</b>
       </p>
     </div>
     
