@@ -16,7 +16,7 @@ const btnLoadMoreEl = document.querySelector(".load-more")
 
 let totalHits = "";
 let pageNow = "";
-
+buttonEl.disabled = true;
 
 console.log("SimpleLightbox");
 
@@ -35,6 +35,7 @@ function onDisabledButton(e) {
 
 function onPicture(e) {
   buttonEl.disabled = true;
+
     e.preventDefault();
     name = inputEl.value.trim()
     
@@ -51,7 +52,13 @@ function onPicture(e) {
         Notify.failure('Sorry, there are no images matching your search query. Please try again.');
         return
     }
-    // else if (){}
+    else if (name === ""){
+      galleryEl.innerHTML = "";
+      btnLoadMoreEl.classList.add("is-hidden");
+
+      return
+
+    }
 
     else{
         const marcup = createMarkup(data)
