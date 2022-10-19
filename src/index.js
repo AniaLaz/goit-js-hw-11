@@ -26,6 +26,7 @@ inputEl.addEventListener("input", onDisabledButton)
 
 let name ="";
 let page = 1;
+
 btnLoadMoreEl.classList.add("is-hidden")
 
 function onDisabledButton(e) {
@@ -44,6 +45,8 @@ function onPicture(e) {
         pageNow = totalHits/40;
         console.log("pageNow",pageNow);
         Notify.info(`Hooray! We found ${totalHits} images.`);
+        page = 1;
+        
       
     if (data.hits.length === 0){
         Notify.failure('Sorry, there are no images matching your search query. Please try again.');
