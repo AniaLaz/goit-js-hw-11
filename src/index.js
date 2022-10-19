@@ -49,27 +49,32 @@ function onPicture(e) {
         
       
     if (data.hits.length === 0){
+      galleryEl.innerHTML = "";
+      btnLoadMoreEl.classList.add("is-hidden")
         Notify.failure('Sorry, there are no images matching your search query. Please try again.');
         return
     }
     else if (name === ""){
       galleryEl.innerHTML = "";
       btnLoadMoreEl.classList.add("is-hidden");
-
       return
-
     }
-
+    else if (data.hits.length < 40){ 
+      Notify.info(`Hooray! We found ${totalHits} images.`);
+      const marcup = createMarkup(data)
+      galleryEl.innerHTML = marcup;
+      btnLoadMoreEl.classList.add("is-hidden")
+      return
+    }
     else{
         const marcup = createMarkup(data)
-        Notify.info(`Hooray! We found ${totalHits} images.`);
         galleryEl.innerHTML = marcup;
+        Notify.info(`Hooray! We found ${totalHits} images.`);
         page +=1;
         btnLoadMoreEl.classList.remove("is-hidden")
         lightbox.refresh()
         return}})
     .catch(err => console.log(err))
-
 }
 
 function onLoadMore(el) {
