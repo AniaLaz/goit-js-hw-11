@@ -64,6 +64,7 @@ function onPicture(e) {
       const marcup = createMarkup(data)
       galleryEl.innerHTML = marcup;
       btnLoadMoreEl.classList.add("is-hidden")
+      lightbox.refresh()
       return
     }
     else{
