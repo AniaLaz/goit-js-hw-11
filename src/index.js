@@ -129,6 +129,7 @@ function  createMarkup(arr) {
 ).join('')
 }
 
+console.log("hello");
 
 
 

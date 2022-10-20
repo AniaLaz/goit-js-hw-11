@@ -79,7 +79,11 @@ width: 100%;
 }
 
 .load-more{
-  margin-left: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50%;
+  transform: translate(-50%);
   background-color: rgb(223, 135, 135);
   border: 2px solid rgb(85, 13, 13);
   border-radius: 15%;
