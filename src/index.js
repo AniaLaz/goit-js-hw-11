@@ -1,6 +1,6 @@
 // 23818596-d5461ac6688865132aed17576
 import './css/styles.css';
-import { fetchCountries } from "./fetchCountries";
+import { fetchPicture } from "./fetchPicture";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
@@ -40,7 +40,7 @@ function onPicture(e) {
     name = inputEl.value.trim()
     
 
-    fetchCountries(name,page)
+    fetchPicture(name,page)
     .then(data => {
         totalHits = data.totalHits;
         pageNow = totalHits/40;
@@ -80,7 +80,7 @@ function onPicture(e) {
 
 function onLoadMore(el) {
   btnLoadMoreEl.disabled = true;
-    fetchCountries(name,page)
+    fetchPicture(name,page)
     .then(data => {
         const marcup = createMarkup(data)
         galleryEl.insertAdjacentHTML("beforeend", marcup);
