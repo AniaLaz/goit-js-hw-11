@@ -106,7 +106,9 @@ function  createMarkup(arr) {
     return arr.hits.map(el => `
     <div class="photo-card">
     <a class="gallery__item" href="${el.largeImageURL}">
+    <div class="thumb">
     <img src="${el.webformatURL}" alt="${el.tags}" class="picture" loading="lazy" width = 200/>
+    </div>
     </a>
     <div class="info">
       <p class="info-item">
