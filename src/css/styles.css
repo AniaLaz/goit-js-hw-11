@@ -39,18 +39,20 @@ body {
 
 .gallery {
   display: flex;
+  justify-content: center;
+  align-items: center;
   list-style: none;
   flex-wrap: wrap;
   gap: 15px;
   margin-top: 40px;
 }
+
 .div-input{
 display:flex;
 justify-content: center;
 background-color: rgba(223, 135, 135, 0.466);
 padding-top: 3px;
 padding-bottom: 3px;
-
 position: fixed;
 top: 0;
 width: 100%;
@@ -63,7 +65,7 @@ width: 100%;
 .load-more.is-hidden {
   display: none;
 }
-.info{
+.info {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
