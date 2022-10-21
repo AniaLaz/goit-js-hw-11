@@ -43,6 +43,7 @@ async function onPicture(e) {
   console.log('page', page);
 
     e.preventDefault();
+    window.scrollTo(top);
     name = inputEl.value.trim()
     
 
@@ -147,21 +148,3 @@ function  createMarkup(arr) {
   </div>`
 ).join('')
 }
-
-console.log("hello");
-
-
-// function onScroll(e) {
-//   const { height: cardHeight } = galleryEl
-//   .firstElementChild.getBoundingClientRect();
-
-// window.scrollBy({
-//   top: cardHeight * 2,
-//   behavior: "smooth",
-// });
-// }
-
-
-
-console.log("hi end");
-
