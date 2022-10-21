@@ -13,6 +13,7 @@ const buttonEl = document.querySelector("button");
 const inputEl = document.querySelector("input");
 const galleryEl = document.querySelector(".gallery")
 const btnLoadMoreEl = document.querySelector(".load-more")
+const bodyEl=document.querySelector("body")
 
 let totalHits = "";
 let pageNow = "";
@@ -23,24 +24,28 @@ console.log("SimpleLightbox");
 buttonEl.addEventListener("click", onPicture)
 btnLoadMoreEl.addEventListener("click", onLoadMore)
 inputEl.addEventListener("input", onDisabledButton)
+// bodyEl.addEventListener("scroll", onScroll)
 
 let name ="";
-let page = 1;
+let page = 0;
+
 
 btnLoadMoreEl.classList.add("is-hidden")
 
 function onDisabledButton(e) {
+  page = 1;
   buttonEl.disabled = false;
 }
 
-function onPicture(e) {
+async function onPicture(e) {
   buttonEl.disabled = true;
+  console.log('page', page);
 
     e.preventDefault();
     name = inputEl.value.trim()
     
 
-    fetchPicture(name,page)
+   await fetchPicture(name,page)
     .then(data => {
         totalHits = data.totalHits;
         pageNow = totalHits/40;
@@ -88,7 +93,7 @@ function onLoadMore(el) {
         lightbox.refresh()
         return})
     .catch(err => console.log(err))
-    // refresh()
+    
     console.log("page", page);
     console.log("pageNow", pageNow);
     btnLoadMoreEl.disabled = false;
@@ -132,5 +137,17 @@ function  createMarkup(arr) {
 console.log("hello");
 
 
+// function onScroll(e) {
+//   const { height: cardHeight } = galleryEl
+//   .firstElementChild.getBoundingClientRect();
 
+// window.scrollBy({
+//   top: cardHeight * 2,
+//   behavior: "smooth",
+// });
+// }
+
+
+
+console.log("hi end");
 
