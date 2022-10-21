@@ -5,8 +5,9 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-
 const lightbox = new SimpleLightbox('.gallery a'); 
+
+
 
 const formEl = document.querySelector(".search-form");
 const buttonEl = document.querySelector("button");
@@ -91,6 +92,19 @@ function onLoadMore(el) {
         galleryEl.insertAdjacentHTML("beforeend", marcup);
         page +=1;
         lightbox.refresh()
+
+        //--------------
+        const { height: cardHeight } =
+        galleryEl.firstElementChild.getBoundingClientRect();
+
+      window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+      });
+      //-------------
+
+
+
         return})
     .catch(err => console.log(err))
     
